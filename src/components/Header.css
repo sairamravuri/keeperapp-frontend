@@ -1,0 +1,30 @@
+.Header {
+  display: flex;
+  margin: 0;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #25a5be;
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.Header h1 {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
+.Header .logout-button {
+  color: #fff;
+  border: none;
+  background-color: #25a5be;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+}
+
+.Header .logout-button:hover {
+  text-decoration: underline;
+}

@@ -34,6 +34,7 @@ function CreateArea(props) {
           onChange={handleChange}
           value={note.title}
           placeholder="Title"
+          required={props.inputRequired}
         />
         <textarea
           name="content"
@@ -41,6 +42,7 @@ function CreateArea(props) {
           value={note.content}
           placeholder="Take a note..."
           rows="3"
+          required={props.inputRequired}
         />
         <button onClick={submitNote}>Add</button>
       </form>

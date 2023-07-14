@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -10,6 +10,7 @@ function UserNotes() {
   const location = useLocation();
   const { user_id } = location.state;
   const [allNotes, setAllNotes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://keeperapp-backend.onrender.com/notes/get?user_id=${user_id}`)
@@ -24,6 +25,7 @@ function UserNotes() {
       .then((data) => setAllNotes(data))
       .catch((err) => console.log(err));
   }
+
   function addItem(newNote) {
     fetch("https://keeperapp-backend.onrender.com/notes/add", {
       method: "POST",
@@ -60,10 +62,19 @@ function UserNotes() {
       });
   }
 
+  function handleLogout() {
+    // Clear the user state
+    navigate("/");
+  }
+
   return (
     <div className="UserNotes">
-      <Header />
-      <CreateArea onAdd={addItem} />
+      <Header handleLogout={handleLogout} />
+      <CreateArea
+        onAdd={addItem}
+        inputRequired={true}
+        textareaRequired={true}
+      />
       {allNotes.map((noteitem) => {
         return (
           <Note
@@ -73,6 +84,8 @@ function UserNotes() {
             title={noteitem.title}
             content={noteitem.content}
             onDelete={deleteNote}
+            inputRequired={true}
+            textareaRequired={true}
           />
         );
       })}
