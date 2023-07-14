@@ -26,7 +26,7 @@ function ForgotPassword() {
     event.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:4000/user/ForgotPassword", {
+    fetch("https://keeperapp-backend.onrender.com/user/ForgotPassword", {
       method: "POST",
       body: JSON.stringify({ email }),
       headers: {
@@ -53,7 +53,7 @@ function ForgotPassword() {
     event.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:4000/user/Verifyotp", {
+    fetch("https://keeperapp-backend.onrender.com/user/Verifyotp", {
       method: "POST",
       body: JSON.stringify({ email, otp }),
       headers: {
@@ -80,7 +80,7 @@ function ForgotPassword() {
     event.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:4000/user/ChangePassword", {
+    fetch("https://keeperapp-backend.onrender.com/user/ChangePassword", {
       method: "POST",
       body: JSON.stringify({ email, newPassword }),
       headers: {

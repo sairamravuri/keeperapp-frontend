@@ -12,20 +12,20 @@ function UserNotes() {
   const [allNotes, setAllNotes] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/notes/get?user_id=${user_id}`)
+    fetch(`https://keeperapp-backend.onrender.com/notes/get?user_id=${user_id}`)
       .then((res) => res.json())
       .then((data) => setAllNotes(data))
       .catch((err) => console.log(err));
   }, []);
 
   function handleDeleteItem() {
-    fetch(`http://localhost:4000/notes/get?user_id=${user_id}`)
+    fetch(`https://keeperapp-backend.onrender.com/notes/get?user_id=${user_id}`)
       .then((res) => res.json())
       .then((data) => setAllNotes(data))
       .catch((err) => console.log(err));
   }
   function addItem(newNote) {
-    fetch("http://localhost:4000/notes/add", {
+    fetch("https://keeperapp-backend.onrender.com/notes/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function UserNotes() {
   function deleteNote(item) {
     const id = item.id;
     console.log(id);
-    fetch("http://localhost:4000/notes/delete", {
+    fetch("https://keeperapp-backend.onrender.com/notes/delete", {
       method: "DELETE",
       body: JSON.stringify({ id }),
       headers: {

@@ -39,7 +39,7 @@ function Signup() {
       return;
     }
 
-    fetch("http://localhost:4000/user/signup", {
+    fetch("https://keeperapp-backend.onrender.com/user/signup", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: {
